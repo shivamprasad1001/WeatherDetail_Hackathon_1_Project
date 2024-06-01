@@ -29,8 +29,8 @@ To run this project, you need a modern web browser. No additional software or li
 ## Usage
 
 1. Open the Weather App in your web browser.
-2. Enter the name of a city or location in the search bar.
-3. Click the "Search" button to fetch and display the weather information.
+2. Allow location .
+
 
 ## Contributing
 
