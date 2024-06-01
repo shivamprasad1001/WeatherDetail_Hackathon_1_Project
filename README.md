@@ -6,6 +6,8 @@ Welcome to the GitHub repository for our Weather App, developed during our first
 
 Our Weather App is a web application that provides users with real-time weather information for any location. The app fetches weather data using the Weather API, ensuring accurate and up-to-date information.
 
+You can check out the live version of our app [here](https://shivamprasad1001.github.io/WeatherDetail_Hackathon_1_Project/).
+
 ## Features
 
 - **Real-time Weather Data**: Get the latest weather conditions, including temperature, humidity, wind speed, and more.
@@ -49,4 +51,4 @@ If you have any questions or feedback, please reach out to us via GitHub issues.
 
 ---
 
-Thank you for visiting our repository. We hope you find our Weather App useful and easy to use! Connect with me on [LinkedIn](https://www.linkedin.com/in/shivam-prasad1001/)
+Thank you for visiting our repository. We hope you find our Weather App useful and easy to use! Connect with me on [LinkedIn](https://www.linkedin.com/in/shivam-prasad1001/).
