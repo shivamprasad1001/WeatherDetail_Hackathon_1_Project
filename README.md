@@ -52,3 +52,5 @@ If you have any questions or feedback, please reach out to us via GitHub issues.
 ---
 
 Thank you for visiting our repository. We hope you find our Weather App useful and easy to use! Connect with me on [LinkedIn](https://www.linkedin.com/in/shivam-prasad1001/).
+
+#hacnovat5.0 #ABESIT #HIVE
