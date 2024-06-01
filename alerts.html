@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Forecast & Disaster Alert</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+            <div class="navbar">
+                <p class="logo"><img src="icon/logo.jpg" alt=""></p>
+                <ul>
+                    <div id="UserLocatio">
+                        <img src="icon/locatio.gif" alt=" ">
+                        <p id="UserLocationData">user Location uttar pradesh</p>
+                    </div>
+                    <li ><a href="index.html">Dashborad</a></li>
+                    <li><a href="weather.html">Weather</a></li>
+                    <li class="active"><a href="alerts.html">Alerts</a></li>
+                    <li><a href="#">Location</a></li>
+                    <li><a href="helpline.html">Helpline</a></li>
+                    <button type="submit" id="emergencyButton">Emergency</button>
+
+                </ul>
+            </div>
+        </div>
+</body>
+</html>
+
+
+    <script>
+        // Fetch disaster data
+        async function fetchDisasterData() {
+            // Replace 'your_disaster_api_url' with the actual API URL
+            const apiURL = 'https://api.example.com/disaster-data';
+            
+            try {
+                const res = await fetch(apiURL);
+                if (!res.ok) {
+                    throw new Error(`HTTP error: ${res.status}`);
+                }
+
+                const data = await res.json();
+                displayDisasterData(data);
+            } catch (error) {
+                console.error('Error fetching disaster data:', error);
+                document.getElementById('disasterData').textContent = 'Failed to load data.';
+            }
+        }
+
+        // Display disaster data
+        function displayDisasterData(data) {
+            const disasterDataElement = document.getElementById('disasterData');
+            
+            // Customize the display of disaster data according to your API response
+            // Example: Show a list of disaster warnings
+            const warnings = data.warnings;
+            warnings.forEach(warning => {
+                const warningElement = document.createElement('p');
+                warningElement.textContent = warning.message;
+                disasterDataElement.appendChild(warningElement);
+            });
+        }
+// Function to check user's location permission
+function checkLocationPermission() {
+    if (navigator.permissions) {
+        navigator.permissions.query({ name: 'geolocation' })
+            .then(permissionStatus => {
+                if (permissionStatus.state === 'denied') {
+                    // Redirect to alert page
+                    window.location.href = 'alert.html';
+                } else {
+                    // User has granted location permission
+                    // Perform functions that require location
+                    initializeApp();
+                }
+            });
+    } else {
+        // If permissions API is not supported, assume permission is denied
+        window.location.href = 'alert.html';
+    }
+}
+
+// Initialize the app if the user has location access
+function initializeApp() {
+    // Add your app initialization code here
+    console.log("App initialized");
+}
+
+// Call the checkLocationPermission function on page load
+document.addEventListener('DOMContentLoaded', checkLocationPermission);
+
+        // Fetch data on page load
+        fetchDisasterData();
+
+    </script>
+    
+</body>
+
+</html>

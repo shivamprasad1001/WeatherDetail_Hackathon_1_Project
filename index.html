@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Forecast & Disaster Alert</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+            <div class="navbar">
+                <p class="logo"><img src="icon/logo.jpg" alt=""></p>
+                <ul>
+                    <div id="UserLocatio">
+                        <img src="icon/locatio.gif" alt=" ">
+                        <p id="UserLocationData">user Location uttar pradesh</p>
+                    </div>
+                    <li class="active"><a href="#">Dashborad</a></li>
+                    <li><a href="weather.html">Weather</a></li>
+                    <li><a href="alerts.html">Alerts</a></li>
+                    <li><a href="#">Location</a></li>
+                    <li><a href="helpline.html">Helpline</a></li>
+                    <button type="submit" id="emergencyButton">Emergency</button>
+
+                </ul>
+            </div>
+            <section class="wetherData">
+                <section class="tempDetails">
+                    <p id="now">now</p>
+                    <h2 id="temp">No Data</h2>
+                    <p id="hiTem">tempHigh</p> <br>
+                    <p id="lowTem">templow</p>
+                </section>
+                <section class="tempMode">
+                    <p id="tempType">sunny</p>
+                    <p id="likeTemp">file Like</p>
+                </section>
+                <section id="SomeDetails">
+                              
+                    <div class="wind">
+                        <p id="title">wind</p>
+                        <div class="imgs">
+                            <img src="icon/wind.png" alt="wind">
+                        </div>
+                        <br>
+                            <p id="weatherCurrentData">Wind Data</p>
+                    </div>
+                    <div class="wind">
+                        <p id="title">Humidity</p>
+                        <div class="imgs">
+                            <img src="icon/humidity.png" alt="humidity">
+                        </div>
+                        <br>
+                            <p id="weatherCurrentData">Humidity Data</p>
+                    </div>
+                    <div class="wind">
+                        <p id="title">Pressure</p>
+                        <div class="imgs">
+                            <img src="icon/sealevel (2).png" alt="humidity">
+                        </div>
+                        <br>
+                            <p id="weatherCurrentData">Pressure Data</p>
+                    </div>
+                    
+                </section>
+
+            </section>
+            <a href="file/guideList.html">
+                <div class="book">
+                    <img src="icon/book.png" alt="">
+                </div>
+            </a>
+    </div>
+
+    <script src="index.js">
+    </script>
+</body>
+</html>
+
+

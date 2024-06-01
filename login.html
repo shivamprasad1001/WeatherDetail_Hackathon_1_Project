@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="login-container">
+        <h1>Login</h1>
+        <form id="login-form">
+            <div>
+                <label for="loginInput">Phone Number or Gmail:</label>
+                <input type="text" id="loginInput" name="loginInput" required>
+                <button type="button" id="sendOtpBtn" disabled>Send OTP</button>
+            </div>
+            <div>
+                <label for="otpInput">Enter OTP:</label>
+                <input type="text" id="otpInput" name="otpInput" disabled required>
+            </div>
+            <button type="submit" id="submitBtn" disabled>Submit</button>
+        </form>
+        <div id="signupLink">
+            <p>Don't have an account? <a href="signup.html">Sign up</a></p>
+        </div>
+    </div>
+
+    <script src="login.js"></script>
+</body>
+
+</html>

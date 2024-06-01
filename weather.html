@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Forecast & Disaster Alert</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <link rel="stylesheet" href="styles.css">
+    <style>#map {
+        margin-top: 5em;
+        margin-left: 25em;
+        height: 60%;
+        width: 60%;
+        border-radius: 10px;
+      }
+      
+      /* 
+       * Optional: Makes the sample page fill the window. 
+       */
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      </style>
+</head>
+<body>
+    <div class="container">
+            <div class="navbar">
+                <p class="logo"><img src="icon/logo.jpg" alt=""></p>
+                <ul>
+                    <div id="UserLocatio">
+                        <img src="icon/locatio.gif" alt=" ">
+                        <p id="UserLocationData">user Location uttar pradesh</p>
+                    </div>
+                    <li ><a href="index.html">Dashborad</a></li>
+                    <li class="active"><a href="weather.html">Weather</a></li>
+                    <li><a href="alerts.html">Alerts</a></li>
+                    <li><a href="#">Location</a></li>
+                    <li><a href="helpline.html">Helpline</a></li>
+                    <button type="submit" id="emergencyButton">Emergency</button>
+
+                </ul>
+            </div>
+            <div id="map"></div>
+            
+
+    </div>
+    <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&libraries=visualization&v=weekly"
+    defer
+  ></script>
+    <script src="index.js"></script>
+    <script>
+        let map;
+
+function initMap() {
+  map = new google.maps.Map(document.getElementById("map"), {
+    zoom: 4,
+    center: new google.maps.LatLng(28.5835264,77.2636672),
+    mapTypeId: "terrain",
+  });
+
+  // Create a <script> tag and set the USGS URL as the source.
+  const script = document.createElement("script");
+
+  // This example uses a local copy of the GeoJSON stored at
+  // http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.geojsonp
+  script.src =
+    "https://developers.google.com/maps/documentation/javascript/examples/json/earthquake_GeoJSONP.js";
+  document.getElementsByTagName("head")[0].appendChild(script);
+}
+
+// Loop through the results array and place a marker for each
+// set of coordinates.
+const eqfeed_callback = function (results) {
+  for (let i = 0; i < results.features.length; i++) {
+    const coords = results.features[i].geometry.coordinates;
+    const latLng = new google.maps.LatLng(coords[1], coords[0]);
+
+    new google.maps.Marker({
+      position: latLng,
+      map: map,
+    });
+  }
+};
+
+window.initMap = initMap;
+window.eqfeed_callback = eqfeed_callback;
+    </script>
+    
+</body>
+</html>
