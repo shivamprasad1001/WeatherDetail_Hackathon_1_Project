@@ -15,7 +15,8 @@ Our Weather App is a web application that provides users with real-time weather 
 
 - **HTML/CSS**: For structuring and styling the web pages.
 - **JavaScript**: To handle the logic and interactivity of the app.
-- **Weather API**: To fetch real-time weather data.
+- **Weather API**: To fetch real-time weather data using [OpenWeatherMap API](https://openweathermap.org/api).
+- **Geocoding API**: To fetch location details using [OpenCage Geocoding API](https://opencagedata.com/api).
 
 ## Getting Started
 
@@ -42,14 +43,10 @@ Special thanks to:
 
 for their hard work and dedication in developing this app.
 
-
-
 ## Contact
 
-  If you have any questions or feedback, please reach out to us via GitHub issues.
+If you have any questions or feedback, please reach out to us via GitHub issues.
 
 ---
 
-Thank you for visiting our repository. We hope you find our Weather App useful and easy to use! or
-Connect with me on [LinkedIn](https://www.linkedin.com/in/shivam-prasad1001/)
-    
+Thank you for visiting our repository. We hope you find our Weather App useful and easy to use! Connect with me on [LinkedIn](https://www.linkedin.com/in/shivam-prasad1001/)
