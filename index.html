@@ -1,80 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather Forecast & Disaster Alert</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <div class="container">
-            <div class="navbar">
-                <p class="logo"><img src="icon/logo.jpg" alt=""></p>
-                <ul>
-                    <div id="UserLocatio">
-                        <img src="icon/locatio.gif" alt=" ">
-                        <p id="UserLocationData">user Location uttar pradesh</p>
-                    </div>
-                    <li class="active"><a href="#">Dashborad</a></li>
-                    <li><a href="weather.html">Weather</a></li>
-                    <li><a href="alerts.html">Alerts</a></li>
-                    <li><a href="#">Location</a></li>
-                    <li><a href="helpline.html">Helpline</a></li>
-                    <button type="submit" id="emergencyButton">Emergency</button>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aegis: Weather & Disaster Shield</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Leaflet for maps -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Custom Leaflet Popup Styling to match app theme */
+        .leaflet-popup-content-wrapper {
+            background: rgba(17, 24, 39, 0.8) !important; /* bg-gray-900/80 */
+            color: #fff !important;
+            border-radius: 12px !important;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2) !important;
+            backdrop-filter: blur(10px) !important;
+            -webkit-backdrop-filter: blur(10px) !important;
+            border: 1px solid rgba(255, 255, 255, 0.2) !important;
+        }
+        .leaflet-popup-content {
+            margin: 12px !important;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        .leaflet-popup-tip {
+            background: rgba(17, 24, 39, 0.8) !important;
+        }
+        .leaflet-popup-close-button {
+            color: #fff !important;
+            padding: 4px 4px 0 0 !important;
+        }
+        .leaflet-popup-close-button:hover {
+            color: #bbb !important;
+            background-color: transparent !important;
+        }
+        .leaflet-container {
+            background-color: #1f2937; /* bg-gray-800 */
+        }
 
-                </ul>
-            </div>
-            <section class="wetherData">
-                <section class="tempDetails">
-                    <p id="now">now</p>
-                    <h2 id="temp">No Data</h2>
-                    <p id="hiTem">tempHigh</p> <br>
-                    <p id="lowTem">templow</p>
-                </section>
-                <section class="tempMode">
-                    <p id="tempType">sunny</p>
-                    <p id="likeTemp">file Like</p>
-                </section>
-                <section id="SomeDetails">
-                              
-                    <div class="wind">
-                        <p id="title">wind</p>
-                        <div class="imgs">
-                            <img src="icon/wind.png" alt="wind">
-                        </div>
-                        <br>
-                            <p id="weatherCurrentData">Wind Data</p>
-                    </div>
-                    <div class="wind">
-                        <p id="title">Humidity</p>
-                        <div class="imgs">
-                            <img src="icon/humidity.png" alt="humidity">
-                        </div>
-                        <br>
-                            <p id="weatherCurrentData">Humidity Data</p>
-                    </div>
-                    <div class="wind">
-                        <p id="title">Pressure</p>
-                        <div class="imgs">
-                            <img src="icon/sealevel (2).png" alt="humidity">
-                        </div>
-                        <br>
-                            <p id="weatherCurrentData">Pressure Data</p>
-                    </div>
-                    
-                </section>
-
-            </section>
-            <a href="file/guideList.html">
-                <div class="book">
-                    <img src="icon/book.png" alt="">
-                </div>
-            </a>
-    </div>
-
-    <script src="index.js">
+        /* Print-specific styles for the "Download Guide" feature */
+        @media print {
+            body {
+                background: #fff !important;
+                color: #000 !important;
+                font-size: 12pt;
+            }
+            .no-print {
+                display: none !important;
+            }
+            .printable-content {
+                display: block !important;
+                box-shadow: none !important;
+                border: none !important;
+                color: #000 !important;
+                padding: 0 !important;
+            }
+            .printable-content h1, .printable-content h2, .printable-content h3 {
+                color: #000 !important;
+            }
+             .printable-content li span {
+                color: #000 !important;
+            }
+             .printable-content svg {
+                display: none; /* Hide icons when printing for cleaner text */
+            }
+        }
+    </style>
+    
+    <script type="importmap">
+    {
+      "imports": {
+        "react": "https://aistudiocdn.com/react@^19.1.1",
+        "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
+        "react/": "https://aistudiocdn.com/react@^19.1.1/",
+        "@google/genai": "https://aistudiocdn.com/@google/genai@^1.20.0",
+        "recharts": "https://aistudiocdn.com/recharts@^3.2.1"
+      }
+    }
     </script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="bg-gray-900">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
 </body>
 </html>
-
-

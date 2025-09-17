@@ -1,0 +1,5 @@
+{
+  "name": "Aegis: Weather & Disaster Shield",
+  "description": "A responsive web application that provides real-time weather, disaster alerts, earthquake data, and actionable international safety guidance to help people make fast decisions and contact emergency services when needed.",
+  "requestFramePermissions": []
+}
